@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailMind - Log In</title>
+    <link rel="stylesheet" href="style.css"> <!-- Assuming shared style.css or a specific login-style.css -->
+    <!-- If you created Signup.css and want similar styles, you might rename it to forms-style.css and link that,
+         or copy relevant styles to your main style.css -->
+</head>
+<body>
+    <div class="form-container-wrapper">
+        <div class="form-container">
+            <header class="form-header">
+                <h1>Welcome Back to MailMind!</h1>
+                <p>Log in to manage your email reminders.</p>
+            </header>
+
+            <main class="form-content">
+                <!-- "Sign in with Google" Button -->
+                <div class="form-group">
+                    <button type="button" class="google-login-button" onclick="handleGoogleLogin()">
+                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" class="google-logo">
+                        Sign in with Google
+                    </button>
+                </div>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <!-- Traditional Login Form -->
+                <form id="loginForm" action="dashboard.html" method="post"> <!-- action points to a placeholder dashboard -->
+                    <div class="form-group">
+                        <label for="email">Email ID</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-group extra-options">
+                        <label class="remember-me">
+                            <input type="checkbox" name="remember"> Remember me
+                        </label>
+                        <a href="forgot-password.html" class="forgot-password-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-button">Log In</button>
+                </form>
+            </main>
+
+            <footer class="form-footer">
+                <p>Don't have an account? <a href="Signup.html">Sign Up here</a></p>
+            </footer>
+        </div>
+    </div>
+    <script src="login-script.js"></script> <!-- Separate script for login logic if needed -->
+</body>
+</html>

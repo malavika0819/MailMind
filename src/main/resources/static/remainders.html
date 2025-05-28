@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailMinder - Your Reminders</title>
+    <!-- Link to the same CSS as dashboard for consistent styling -->
+    <link rel="stylesheet" href="Dashboard.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts (if used in Dashboard.css, ensure it's here too or in a shared layout) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page"> <!-- Use the same body class for consistent base styling -->
+    <div class="dashboard-layout"> <!-- Re-using dashboard-layout for consistency -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-cogs"></i> <!-- Same as dashboard -->
+                <span>MailMinder</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item" data-page="dashboard"> <!-- data-page for JS to highlight -->
+                        <a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item active" data-page="reminders"> <!-- This page is active -->
+                        <a href="reminders.html"><i class="fas fa-bell"></i> My Reminders</a>
+                    </li>
+                    <li class="nav-item" data-page="profile">
+                        <a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" id="logout-link-reminders" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content-area">
+            <header class="main-header">
+                <div class="header-title">
+                    <h1><i class="fas fa-calendar-check"></i> Your Scheduled Reminders</h1>
+                    <p>Manage your upcoming and past reminders.</p>
+                </div>
+                <div class="header-actions">
+                    <!-- Placeholder for reminder-specific actions like filter by date, status etc. -->
+                    <!-- <input type="date" id="reminder-date-filter" class="search-input"> -->
+                    <button class="btn btn-icon" id="filter-reminders-button" title="Filter Reminders"><i class="fas fa-sort-amount-down"></i></button>
+                </div>
+            </header>
+
+            <!-- Message Display Area for alerts -->
+            <div id="reminders-message-container">
+                <div id="reminders-error-message" class="message-display error-message" style="display: none;"></div>
+                <div id="reminders-info-message" class="message-display info-message" style="display: none;"></div>
+            </div>
+
+            <section class="content-section" id="all-reminders-view">
+                <!-- Add filter options here if needed -->
+                <div class="reminders-list-container">
+                    <ul id="remindersListUL" class="reminders-list">
+                        <!-- Reminder items will be dynamically inserted here by reminders.js -->
+                        <!-- Example of a reminder item structure (created by JS):
+                        <li class="reminder-item status-pending">
+                            <div class="reminder-item-main">
+                                <h3 class="reminder-subject">Follow up on Project Proposal</h3>
+                                <p class="reminder-email-info">From: <span class="sender">boss@example.com</span> (Subject: Project X)</p>
+                                <p class="reminder-datetime">
+                                    <i class="fas fa-clock"></i> Due: May 28, 2025, 09:00 AM
+                                </p>
+                                <p class="reminder-notes-preview">Notes: Make sure to include the budget details...</p>
+                            </div>
+                            <div class="reminder-item-actions">
+                                <button class="btn btn-sm btn-edit-reminder" data-id="123"><i class="fas fa-edit"></i> Edit</button>
+                                <button class="btn btn-sm btn-delete-reminder" data-id="123"><i class="fas fa-trash-alt"></i> Delete</button>
+                                <button class="btn btn-sm btn-mark-complete" data-id="123"><i class="fas fa-check-square"></i> Mark Done</button>
+                            </div>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- We can reuse the Scheduler Modal from dashboard.html if "Edit Reminder" opens it -->
+    <!-- For simplicity, let's assume the edit action will also use this modal. -->
+    <!-- Ensure IDs are unique if you copy-paste modals or make them generic. -->
+    <!-- For now, we'll assume the JS can repopulate the existing #schedulerModal -->
+    <div id="schedulerModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="closeSchedulerModalBtnReminders" title="Close">×</button>
+            <h3 id="schedulerModalTitle"><i class="fas fa-edit"></i> Edit Reminder</h3> <!-- Title can change -->
+            <p>For: <strong id="schedulerEmailSubjectReminders">(Email subject)</strong></p>
+            <form id="schedulerFormReminders">
+                <div class="form-group">
+                    <label for="reminderPriorityModalReminders">Priority:</label>
+                    <select id="reminderPriorityModalReminders" name="reminderPriorityModal" class="form-control">
+                        <option value="none">None</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reminderDateTimeReminders">Reminder Date & Time:</label>
+                    <input type="datetime-local" id="reminderDateTimeReminders" name="reminderDateTime" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="reminderNotesReminders">Notes (Optional):</label>
+                    <textarea id="reminderNotesReminders" name="reminderNotes" rows="4" class="form-control" placeholder="Update your note..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update Reminder</button>
+                    <button type="button" class="btn btn-secondary" id="cancelSchedulerModalBtnReminders">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Link to a new JavaScript file for this page -->
+    <script src="reminders.js"></script>
+</body>
+</html>

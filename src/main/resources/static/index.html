@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailMind - Schedule, Automate, Relax!</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Font Awesome for icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+      <header>
+        <div class="container">
+            <div class="logo">MailMind</div>
+            <nav class="auth-links">
+                <!-- This single button now directly initiates Google Sign-In -->
+                <a href="/oauth2/authorization/google" class="auth-btn auth-btn-primary">
+                    <i class="fab fa-google"></i> Get Started / Login
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Schedule. Automate. Relax.</h1>
+                    <h2>MailMind Handles Your Important Emails, So You Don't Miss a Thing.</h2>
+                    <p>
+                        Overwhelmed by your inbox? Let MailMinder intelligently filter, prioritize,
+                        and remind you of critical emails, ensuring you're always on top of your game.
+                    </p>
+                    <button class="cta-button" onclick="location.href='/oauth2/authorization/google'"><i class="fas fa-rocket"></i> Get Started with Google</button>
+                </div>
+                <div class="hero-image-placeholder">
+                    <div class="animated-icon"><i class="fas fa-envelope-open-text"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose MailMind?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                        <h3>Secure Google Connection</h3>
+                        <p>Connects seamlessly and securely to your Gmail account using Google OAuth, keeping your data safe.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                        <h3>Timely Reminders</h3>
+                        <p>Never miss an important deadline or follow-up. Get smart reminders exactly when you need them.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>Clear Dashboard View</h3>
+                        <p>See all your prioritized emails and scheduled reminders in one organized and intuitive dashboard.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-star"></i></div>
+                        <h3>Smart Prioritization</h3>
+                        <p>Easily mark emails by priority, so you can focus on what truly matters first.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <h2>Simple to Get Started</h2>
+                <ol class="steps-list">
+                    <li><span><i class="fas fa-link"></i></span> Connect your Gmail account securely.</li>
+                    <li><span><i class="fas fa-eye"></i></span> View your emails in MailMind.</li>
+                    <li><span><i class="fas fa-cogs"></i></span> Prioritize and schedule reminders for important emails.</li>
+                    <li><span><i class="fas fa-couch"></i></span> Relax! MailMind will keep you on track.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="call-to-action-bottom">
+            <div class="container">
+                <h2>Ready to Take Control of Your Inbox?</h2>
+                <p>Stop letting important emails slip through. Start with MailMind today!</p>
+                <button class="cta-button-secondary" onclick="location.href='/oauth2/authorization/google'"><i class="fab fa-google"></i> Sign Up Free with Google</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 MailMind. All rights reserved.</p>
+            <nav class="footer-links">
+                <a href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="privacy.html"><i class="fas fa-user-secret"></i> Privacy Policy</a>
+                <a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+            </nav>
+        </div>
+    </footer>
+    <!-- <script src="index.js"></script> -->
+</body>
+</html>

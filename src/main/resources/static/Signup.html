@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailMind - Create Your Account</title>
+    <link rel="stylesheet" href="Signup.css"> <!-- MAKE SURE THIS FILE EXISTS AND IS NAMED CORRECTLY -->
+</head>
+<body>
+    <div class="form-container-wrapper">
+        <div class="form-container">
+            <header class="form-header">
+                <div class="logo-animation">🚀</div>
+                <h1>Create Your MailMind Account</h1>
+                <p>Unlock a smarter way to manage your emails. It's quick and easy!</p>
+            </header>
+
+            <main class="form-content">
+                <form id="signupForm" action="Success.html" method="get" novalidate>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Choose a unique username" required />
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email-id">Email ID</label>
+                        <input type="email" id="email-id" name="email" placeholder="your.email@example.com" required />
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Create a strong password" required minlength="8" />
+                        <small class="error-message"></small>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                            <small class="strength-text"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group gender-group">
+                        <label class="gender-label">Gender</label>
+                        <div class="radio-options">
+                            <input type="radio" id="male" name="gender" value="M" required />
+                            <label for="male" class="radio-label">Male</label>
+                            <input type="radio" id="female" name="gender" value="F" required />
+                            <label for="female" class="radio-label">Female</label>
+                            <!-- <input type="radio" id="other" name="gender" value="O" required />
+                            <label for="other" class="radio-label">Other</label> -->
+                        </div>
+                        <small class="error-message gender-error"></small>
+                    </div>
+
+                    <div class="form-group terms-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms" class="checkbox-label">I agree to the <a href="terms.html" target="_blank">Terms and Conditions</a></label>
+                        <small class="error-message"></small>
+                    </div>
+
+                    <button type="submit" class="submit-button">Create Account</button>
+                </form>
+            </main>
+
+            <footer class="form-footer">
+                <p>Already a member? <a href="login.html">Log In</a></p>
+            </footer>
+        </div>
+    </div>
+    <script src="script.js"></script> <!-- MAKE SURE THIS FILE EXISTS AND IS NAMED CORRECTLY -->
+</body>
+</html>
