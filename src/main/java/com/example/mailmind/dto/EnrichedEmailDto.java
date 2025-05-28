@@ -3,13 +3,13 @@ package com.example.minder.dto;
 import java.time.LocalDateTime;
 
 public class EnrichedEmailDto {
-    private String id; // Gmail Message ID
+    private String id; 
     private String subject;
     private String sender;
     private String snippet;
-    private String date; // Could be ISO String from Gmail
+    private String date; 
     private String currentPriority;
-    private LocalDateTime reminderDateTime; // Using LocalDateTime if your service layer transforms it
+    private LocalDateTime reminderDateTime; 
     private String notes;
 
     public EnrichedEmailDto() {
