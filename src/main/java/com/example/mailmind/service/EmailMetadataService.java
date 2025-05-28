@@ -58,9 +58,9 @@ public class EmailMetadataService {
             metadata.setSubject(subject);
             metadata.setSender(sender);
         } else {
-            // Optionally update subject/sender if they are provided and different from existing
-            // if (subject != null && !subject.equals(metadata.getSubject())) metadata.setSubject(subject);
-            // if (sender != null && !sender.equals(metadata.getSender())) metadata.setSender(sender);
+            
+             if (subject != null && !subject.equals(metadata.getSubject())) metadata.setSubject(subject);
+             if (sender != null && !sender.equals(metadata.getSender())) metadata.setSender(sender);
         }
 
         EmailMetadata savedMetadata = metadataRepository.save(metadata);
@@ -76,9 +76,6 @@ public class EmailMetadataService {
                     logger.error("User not found with ID: {} while setting priority.", userId);
                     return new RuntimeException("User not found with ID: " + userId);
                 });
-
-        // This logic finds existing metadata or prepares a new one if it doesn't exist.
-        // It requires subject and sender for new metadata creation.
         EmailMetadata metadata = metadataRepository.findByUserAndGmailMessageId(user, gmailMessageId)
                 .orElseGet(() -> {
                     logger.info("No existing metadata for priority update via setPriority. Creating new for userId: {}, gmailMessageId: {}", userId, gmailMessageId);
@@ -93,13 +90,10 @@ public class EmailMetadataService {
                 });
 
         metadata.setPriority(priority);
-        // If it was a new record, subject and sender were set by the constructor.
-        // If it was an existing record, only priority is explicitly updated here.
         EmailMetadata savedMetadata = metadataRepository.save(metadata);
         logger.info("Priority set successfully for metadata ID: {}", savedMetadata.getId());
         return savedMetadata;
     }
-
 
     public List<EmailMetadata> getEmailMetadataForUser(Long userId) {
         logger.debug("Fetching all email metadata for userId: {}", userId);
@@ -118,7 +112,6 @@ public class EmailMetadataService {
         }
         return metadataRepository.findByUserIdAndGmailMessageId(userId, gmailMessageId);
     }
-
     public List<Map<String, Object>> enrichEmailsWithMetadata(Long userId, List<Map<String, Object>> gmailEmails) {
         logger.debug("Enriching {} emails with metadata for userId: {}", gmailEmails != null ? gmailEmails.size() : 0, userId);
         if (gmailEmails == null || gmailEmails.isEmpty()) {
@@ -127,8 +120,6 @@ public class EmailMetadataService {
         // Ensure user exists before proceeding
         if (!userService.findById(userId).isPresent()) {
             logger.error("User not found with ID: {} during email enrichment.", userId);
-            // Depending on desired behavior, could throw error or return emails un-enriched.
-            // For now, returning them un-enriched after logging, but throwing might be better.
             return gmailEmails.stream().peek(emailMap -> emailMap.putIfAbsent("currentPriority", "none")).collect(Collectors.toList());
         }
 
