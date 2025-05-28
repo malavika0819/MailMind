@@ -1,4 +1,3 @@
-/* Dashboard.css - Enhanced and Cleaner UI */
 :root {
     --primary-color: #007bff; /* Standard Bootstrap Blue */
     --primary-hover-color: #0056b3;
@@ -34,7 +33,7 @@ body.dashboard-page {
 a { text-decoration: none; color: var(--primary-color); transition: color 0.2s ease; }
 a:hover { color: var(--primary-hover-color); }
 ul { list-style: none; }
-button { cursor: pointer; font-family: inherit; } /* Removed border:none, background:transparent to allow .btn styling */
+button { cursor: pointer; font-family: inherit; } 
 input, button, textarea { font-size: inherit; font-family: inherit; }
 
 .dashboard-layout { display: flex; height: 100vh; }
@@ -43,7 +42,7 @@ input, button, textarea { font-size: inherit; font-family: inherit; }
 .sidebar {
     width: 260px; /* Slightly wider */
     background-color: var(--dark-color);
-    color: #ccc; /* Lighter text for contrast on dark bg */
+    color: #ccc;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -110,8 +109,8 @@ input, button, textarea { font-size: inherit; font-family: inherit; }
 #dashboard-message-container { margin-bottom: 1rem; }
 .message-display {
     padding: 1rem; border: 1px solid transparent; border-radius: var(--border-radius);
-    font-size: 0.95em; text-align: left; /* Changed to left */
-    display: none; /* Initially hidden */
+    font-size: 0.95em; text-align: left; 
+    display: none; 
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease, margin-bottom 0.3s ease;
@@ -123,7 +122,6 @@ input, button, textarea { font-size: inherit; font-family: inherit; }
 .message-display.info-message { color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; }
 .message-display i { margin-right: 0.5em; }
 
-/* Email List */
 .email-list-container { background-color: var(--card-bg); border-radius: var(--border-radius); box-shadow: var(--box-shadow-sm); overflow: hidden; }
 .email-list-header-sticky {
     position: sticky; top: 0; z-index: 5; /* Ensure below main header if main content scrolls */
@@ -174,8 +172,6 @@ input, button, textarea { font-size: inherit; font-family: inherit; }
 .email-list li.loading-message i, .email-list li.empty-message i, .email-list li.error-message-li i { margin-right: 0.5em; }
 .email-list li.error-message-li { color: var(--danger-color); font-style: normal; font-weight: 500; }
 
-
-/* Modal Styles */
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background-color: rgba(33, 37, 41, 0.6); /* Darker backdrop */
@@ -218,7 +214,6 @@ input, button, textarea { font-size: inherit; font-family: inherit; }
 .modal-content .btn-secondary { color: var(--dark-color); background-color: #e9ecef; border-color: #ced4da; }
 .modal-content .btn-secondary:hover { background-color: #dadee2; }
 
-/* Responsive Adjustments */
 @media (max-width: 992px) { /* Targeting typical tablet portrait + larger phones */
     .sidebar { width: 200px; }
     .sidebar-logo span { font-size: 1.2rem; }
