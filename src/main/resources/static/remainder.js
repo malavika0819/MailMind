@@ -203,7 +203,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
-
     function openEditReminderModal(reminderData) {
         if (!schedulerModal || !schedulerForm || !schedulerEmailSubjectEl || !reminderDateTimeInput || !reminderNotesInput || !reminderPriorityModalInput || !schedulerModalTitle) {
             showRemindersError("Edit Reminder modal UI elements missing."); return;
@@ -228,13 +227,6 @@ document.addEventListener('DOMContentLoaded', function () {
         schedulerModal.style.display = 'flex';
         requestAnimationFrame(() => { schedulerModal.classList.add('active'); });
     }
-
-    // The closeSchedulerModal and schedulerForm submit listener needs to be adapted
-    // if you are reusing the SAME modal for editing.
-    // For now, let's assume closeSchedulerModal is generic.
-    // The submit listener will need to know if it's editing or creating.
-    // We can use currentEditingReminderData to check this.
-
     function closeSchedulerModal() { // Generic close
         if (schedulerModal) {
             schedulerModal.classList.remove('active');
@@ -277,7 +269,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const reminderDateTimeISO = reminderDateTimeValue.length === 16 ? reminderDateTimeValue + ":00" : reminderDateTimeValue;
 
             try {
-                // Use the combined endpoint for updates as well, or create a dedicated PUT endpoint
                 const result = await apiFetch(`${API_BASE_URL}/emails/${gmailMessageId}/set-schedule-priority`, { // Or a dedicated PUT /api/reminders/{metadataId}
                     method: 'POST', // Should ideally be PUT if updating an existing resource by its ID
                     body: {
