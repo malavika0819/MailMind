@@ -10,14 +10,14 @@
 }
 
 html {
-    scroll-behavior: smooth; /* For smooth scrolling on anchor links, if any */
+    scroll-behavior: smooth; 
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    line-height: 1.7; /* Increased for better readability */
-    color: #374151; /* Tailwind gray-700 */
-    background-color: #f9fafb; /* Tailwind gray-50, very light */
+    line-height: 1.7; 
+    color: #374151; 
+    background-color: #f9fafb; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -41,25 +41,21 @@ header .container {
 header {
     background-color: #ffffff;
     padding: 1rem 0;
-    border-bottom: 1px solid #e5e7eb; /* gray-200 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); /* Softer shadow */
+    border-bottom: 1px solid #e5e7eb; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); 
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: box-shadow 0.3s ease;
 }
-/* Optional: Add a slightly more prominent shadow on scroll
 body.scrolled header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
-*/
-
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
     font-size: 2rem; /* Slightly smaller, using rem */
     font-weight: 800; /* Bolder */
@@ -68,10 +64,10 @@ header .container {
     text-decoration: none;
 }
 .logo:hover {
-    color: #2563eb; /* blue-600 */
+    color: #2563eb; 
 }
 
-.auth-links a.auth-btn { /* General style for auth buttons */
+.auth-links a.auth-btn { 
     text-decoration: none;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
@@ -92,29 +88,24 @@ header .container {
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
-
-/* --- Hero Section --- */
 .hero {
     background: #3b82f6; /* Primary blue */
-    background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%); /* Slightly adjusted gradient */
+    background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%); 
     color: #ffffff;
-    padding: 100px 0; /* Generous padding */
+    padding: 100px 0; 
     text-align: left;
 }
-
 .hero-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 60px; /* More gap */
 }
-
 .hero-text {
     flex-basis: 58%; /* Give a bit more to text */
     animation: fadeInSlideUp 0.8s 0.1s ease-out forwards; /* Slight delay */
     opacity: 0; /* Start hidden for animation */
 }
-
 @keyframes fadeInSlideUp {
     from { opacity: 0; transform: translateY(25px); }
     to { opacity: 1; transform: translateY(0); }
@@ -196,16 +187,16 @@ header .container {
     padding: 80px 0;
     background-color: #ffffff;
 }
-.features .container > h2 { /* Target direct child h2 */
+.features .container > h2 {
     text-align: center;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 700;
-    color: #1f2937; /* gray-800 */
-    margin-bottom: 60px; /* More space */
+    color: #1f2937; 
+    margin-bottom: 60px; 
 }
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly smaller min for more items per row */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
     gap: 35px;
 }
 .feature-item {
@@ -271,7 +262,7 @@ header .container {
 }
 .steps-list li {
     background-color: #ffffff;
-    border: 1px solid #e0f2fe; /* sky-100 */
+    border: 1px solid #e0f2fe; 
     padding: 20px 25px;
     margin-bottom: 1rem;
     border-radius: 8px;
@@ -300,11 +291,9 @@ header .container {
     flex-shrink: 0;
     font-size: 0.95rem;
 }
-
-/* --- Bottom Call to Action --- */
 .call-to-action-bottom {
     padding: 80px 0;
-    background-color: #1e40af; /* Darker blue - blue-800 */
+    background-color: #1e40af;
     color: #e0f2fe; /* sky-100 for text */
     text-align: center;
 }
@@ -340,9 +329,6 @@ header .container {
     color: #ffffff;
     transform: scale(1.03);
 }
-
-
-/* --- Footer --- */
 footer {
     background-color: #111827; /* gray-900, very dark */
     color: #9ca3af; /* gray-400 */
