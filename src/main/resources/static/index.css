@@ -1,6 +1,3 @@
-/* index.css */
-
-/* --- Global Resets & Base Styles --- */
 *,
 *::before,
 *::after {
@@ -36,8 +33,6 @@ header .container {
     justify-content: space-between; /* This pushes logo to left, auth-links to right */
     align-items: center;
 }
-
-/* --- Header --- */
 header {
     background-color: #ffffff;
     padding: 1rem 0;
