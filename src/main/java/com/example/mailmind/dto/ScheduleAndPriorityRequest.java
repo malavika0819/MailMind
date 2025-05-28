@@ -1,20 +1,14 @@
 package com.example.minder.dto;
-
-// No external imports needed for this simple DTO
-
 public class ScheduleAndPriorityRequest {
 
-    private String reminderDateTime; // Expecting ISO String e.g., "YYYY-MM-DDTHH:mm:ss"
-    private String priority;         // e.g., "high", "medium", "low", "none"
-    private String notes;            // Optional
+    private String reminderDateTime; 
+    private String priority;         
+    private String notes;           
     private String subject;
     private String sender;
 
-    // Default constructor
     public ScheduleAndPriorityRequest() {
     }
-
-    // Constructor with all fields (optional)
     public ScheduleAndPriorityRequest(String reminderDateTime, String priority, String notes, String subject, String sender) {
         this.reminderDateTime = reminderDateTime;
         this.priority = priority;
@@ -22,8 +16,6 @@ public class ScheduleAndPriorityRequest {
         this.subject = subject;
         this.sender = sender;
     }
-
-    // Getters
     public String getReminderDateTime() {
         return reminderDateTime;
     }
@@ -43,8 +35,6 @@ public class ScheduleAndPriorityRequest {
     public String getSender() {
         return sender;
     }
-
-    // Setters
     public void setReminderDateTime(String reminderDateTime) {
         this.reminderDateTime = reminderDateTime;
     }
