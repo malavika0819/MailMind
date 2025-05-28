@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling; // ADD THIS IMPORT
 
 @SpringBootApplication
-@EnableScheduling // ADD THIS ANNOTATION
+@EnableScheduling
 public class MinderApplication {
 
     public static void main(String[] args) {
