@@ -1,10 +1,10 @@
 package com.example.minder.dto;
 
 public class ScheduleRequest {
-    private String reminderDateTime; // Expecting ISO String e.g., "2024-12-31T10:00:00"
+    private String reminderDateTime;
     private String notes;
-    private String subject; // Needed if creating new metadata
-    private String sender;  // Needed if creating new metadata
+    private String subject; 
+    private String sender;  
 
     // Getters and Setters
     public String getReminderDateTime() {
