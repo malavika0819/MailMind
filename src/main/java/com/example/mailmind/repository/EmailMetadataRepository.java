@@ -31,11 +31,6 @@ public interface EmailMetadataRepository extends JpaRepository<EmailMetadata, Lo
     List<EmailMetadata> findByUserIdAndReminderDateTimeIsNotNull(Long userId);
     List<EmailMetadata> findByReminderDateTimeBefore(LocalDateTime dateTime);
     List<EmailMetadata> findByUserAndReminderDateTimeBetween(User user, LocalDateTime startDateTime, LocalDateTime endDateTime);
-
-    // --- MODIFIED FINDERS BY NOTES (USING NATIVE SQL) ---
-    // The service layer still passes a pre-processed (lowercased, with wildcards) string.
-    // The native SQL query uses the database's LOWER() function.
-    // Ensure 'email_metadata', 'user_id', and 'notes' are your actual table and column names.
     @Query(value = "SELECT * FROM email_metadata em WHERE em.user_id = :#{#user.id} AND LOWER(em.notes) LIKE :processedSearchTerm", nativeQuery = true)
     List<EmailMetadata> findByUserAndNotesLikeProcessed(@Param("user") User user, @Param("processedSearchTerm") String processedSearchTerm);
 
@@ -59,16 +54,12 @@ public interface EmailMetadataRepository extends JpaRepository<EmailMetadata, Lo
     // Method for NotificationSchedulerService
     @Query("SELECT em FROM EmailMetadata em WHERE em.reminderDateTime IS NOT NULL AND em.notified = false AND em.reminderDateTime <= :currentTime")
     List<EmailMetadata> findDueAndUnnotifiedReminders(@Param("currentTime") LocalDateTime currentTime);
-
-    // Projection interface for upcoming reminders
     public interface EmailReminderDetails {
         String getGmailMessageId();
         LocalDateTime getReminderDateTime();
         String getSubject();
         String getNotes();
     }
-
-    // This projection query should still work fine with JPQL as it doesn't use LOWER() on entity attribute for comparison
     @Query("SELECT em.gmailMessageId as gmailMessageId, " +
            "em.reminderDateTime as reminderDateTime, " +
            "em.subject as subject, " +
