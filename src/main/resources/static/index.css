@@ -1,3 +1,6 @@
+/* index.css */
+
+/* --- Global Resets & Base Styles --- */
 *,
 *::before,
 *::after {
@@ -7,14 +10,14 @@
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth; /* For smooth scrolling on anchor links, if any */
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    line-height: 1.7; 
-    color: #374151; 
-    background-color: #f9fafb; 
+    line-height: 1.7; /* Increased for better readability */
+    color: #374151; /* Tailwind gray-700 */
+    background-color: #f9fafb; /* Tailwind gray-50, very light */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -33,24 +36,30 @@ header .container {
     justify-content: space-between; /* This pushes logo to left, auth-links to right */
     align-items: center;
 }
+
+/* --- Header --- */
 header {
     background-color: #ffffff;
     padding: 1rem 0;
-    border-bottom: 1px solid #e5e7eb; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); 
+    border-bottom: 1px solid #e5e7eb; /* gray-200 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); /* Softer shadow */
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: box-shadow 0.3s ease;
 }
+/* Optional: Add a slightly more prominent shadow on scroll
 body.scrolled header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+*/
+
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .logo {
     font-size: 2rem; /* Slightly smaller, using rem */
     font-weight: 800; /* Bolder */
@@ -59,10 +68,10 @@ header .container {
     text-decoration: none;
 }
 .logo:hover {
-    color: #2563eb; 
+    color: #2563eb; /* blue-600 */
 }
 
-.auth-links a.auth-btn { 
+.auth-links a.auth-btn { /* General style for auth buttons */
     text-decoration: none;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
@@ -83,24 +92,29 @@ header .container {
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
+
+/* --- Hero Section --- */
 .hero {
     background: #3b82f6; /* Primary blue */
-    background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%); 
+    background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%); /* Slightly adjusted gradient */
     color: #ffffff;
-    padding: 100px 0; 
+    padding: 100px 0; /* Generous padding */
     text-align: left;
 }
+
 .hero-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 60px; /* More gap */
 }
+
 .hero-text {
     flex-basis: 58%; /* Give a bit more to text */
     animation: fadeInSlideUp 0.8s 0.1s ease-out forwards; /* Slight delay */
     opacity: 0; /* Start hidden for animation */
 }
+
 @keyframes fadeInSlideUp {
     from { opacity: 0; transform: translateY(25px); }
     to { opacity: 1; transform: translateY(0); }
@@ -182,16 +196,16 @@ header .container {
     padding: 80px 0;
     background-color: #ffffff;
 }
-.features .container > h2 {
+.features .container > h2 { /* Target direct child h2 */
     text-align: center;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 700;
-    color: #1f2937; 
-    margin-bottom: 60px; 
+    color: #1f2937; /* gray-800 */
+    margin-bottom: 60px; /* More space */
 }
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Slightly smaller min for more items per row */
     gap: 35px;
 }
 .feature-item {
@@ -257,7 +271,7 @@ header .container {
 }
 .steps-list li {
     background-color: #ffffff;
-    border: 1px solid #e0f2fe; 
+    border: 1px solid #e0f2fe; /* sky-100 */
     padding: 20px 25px;
     margin-bottom: 1rem;
     border-radius: 8px;
@@ -286,9 +300,11 @@ header .container {
     flex-shrink: 0;
     font-size: 0.95rem;
 }
+
+/* --- Bottom Call to Action --- */
 .call-to-action-bottom {
     padding: 80px 0;
-    background-color: #1e40af;
+    background-color: #1e40af; /* Darker blue - blue-800 */
     color: #e0f2fe; /* sky-100 for text */
     text-align: center;
 }
@@ -324,6 +340,9 @@ header .container {
     color: #ffffff;
     transform: scale(1.03);
 }
+
+
+/* --- Footer --- */
 footer {
     background-color: #111827; /* gray-900, very dark */
     color: #9ca3af; /* gray-400 */
@@ -369,4 +388,111 @@ footer p { margin: 0 0 10px; }
     header .container { flex-direction: column; gap: 15px; }
     .auth-links { margin-top: 0; }
     .hero-text h1 { letter-spacing: -1px; }
+}
+/* Add these styles to the bottom of your existing index.css */
+
+/* --- Login Page Styles --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8; /* Light blue/gray background */
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-box {
+    background-color: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    animation: fadeInSlideUp 0.6s ease-out forwards; /* Reuse animation */
+}
+
+.login-box .logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    display: inline-block; /* To make it a block for margin */
+}
+
+.login-subtitle {
+    color: #5A6773;
+    margin-bottom: 35px;
+    font-size: 1.1em;
+}
+
+.login-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #d1d5db; /* Light gray border */
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.google-btn {
+    background-color: #4285F4; /* Official Google Blue */
+    color: white;
+    border-color: #4285F4;
+}
+.google-btn:hover {
+    background-color: #357ae8;
+}
+
+.guest-btn {
+    background-color: #f8f9fa;
+    color: #343a40;
+    border-color: #ced4da;
+}
+.guest-btn:hover {
+    background-color: #e2e6ea;
+}
+
+.divider-or {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #adb5bd;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin: 5px 0; /* Add some vertical space */
+}
+.divider-or::before, .divider-or::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e9ecef;
+}
+.divider-or span {
+    padding: 0 10px;
+}
+
+.login-footer-text {
+    margin-top: 30px;
+    font-size: 0.8em;
+    color: #6c757d;
+}
+.login-footer-text a {
+    color: #495057;
+    text-decoration: underline;
 }
